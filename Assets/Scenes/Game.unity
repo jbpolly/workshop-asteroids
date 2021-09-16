@@ -479,7 +479,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f8210c8e0384cf48810411b6977f556, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.614
+  m_Volume: 0.058
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1337,7 +1337,8 @@ MonoBehaviour:
   maximumSpeed: 4
   prefabProjectile: {fileID: 6942861204645988935, guid: 3b35f0adf6d9be148a779e101d2cd45c, type: 3}
   projectileSpeed: 10
-  audioSource: {fileID: 2114221208}
+  shotAudioSource: {fileID: 2114221208}
+  destroyClip: {fileID: 8300000, guid: a025d5beee60aa046a141807a8f950c3, type: 3}
 --- !u!82 &2114221208
 AudioSource:
   m_ObjectHideFlags: 0

@@ -13,7 +13,8 @@ public class PlayerBehavior : MonoBehaviour
     public Rigidbody2D prefabProjectile;
     public float projectileSpeed = 10f;
 
-    public AudioSource audioSource;
+    public AudioSource shotAudioSource;
+    public AudioClip destroyClip;
 
     float leftConstraint = Screen.width;
     float rightConstraint = Screen.width;
@@ -38,7 +39,7 @@ public class PlayerBehavior : MonoBehaviour
             
             Rigidbody2D projectile = Instantiate(prefabProjectile, mRigidBody.position, Quaternion.identity);
             projectile.velocity = transform.up * projectileSpeed;
-            audioSource.Play();
+            shotAudioSource.Play();
 
         }
     
@@ -89,7 +90,7 @@ public class PlayerBehavior : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-
+        AudioSource.PlayClipAtPoint(destroyClip, transform.position);
         Destroy(gameObject);
 	}
 

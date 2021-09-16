@@ -8,9 +8,9 @@ public class AsteroidBehavior : MonoBehaviour
     public Rigidbody2D mRigidBody;
     public float maximumVelocity = 1f;
 
-    public AudioSource audioSource;
-
-	void Start()
+    public AudioClip destroyClip;
+    
+    void Start()
     {
 
         Vector2 direction = Random.insideUnitCircle;
@@ -20,10 +20,10 @@ public class AsteroidBehavior : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-         
+       
         if (collision.gameObject.transform.tag != "Boundary") {
             UIManager.score += 10;
-            audioSource.Play();
+            AudioSource.PlayClipAtPoint(destroyClip, transform.position);
             Destroy(collision.gameObject);
             if (gameObject.transform.localScale.x >= 0.6f) {
                 Vector3 position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0f);
